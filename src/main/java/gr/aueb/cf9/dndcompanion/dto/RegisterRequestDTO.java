@@ -1,6 +1,6 @@
 package gr.aueb.cf9.dndcompanion.dto;
 
-import gr.aueb.cf9.dndcompanion.model.Role;
+import gr.aueb.cf9.dndcompanion.model.roles.Role;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 

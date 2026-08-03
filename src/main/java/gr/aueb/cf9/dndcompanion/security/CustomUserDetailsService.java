@@ -1,6 +1,6 @@
 package gr.aueb.cf9.dndcompanion.security;
 
-import gr.aueb.cf9.dndcompanion.model.User;
+import gr.aueb.cf9.dndcompanion.model.roles.User;
 import gr.aueb.cf9.dndcompanion.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

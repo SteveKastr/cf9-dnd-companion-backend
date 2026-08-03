@@ -1,4 +1,4 @@
-package gr.aueb.cf9.dndcompanion.model;
+package gr.aueb.cf9.dndcompanion.model.roles;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +27,7 @@ public class User {
     @Indexed(unique = true)
     private String email;
 
-    private String password; // θα αποθηκεύεται ήδη κρυπτογραφημένο (BCrypt)
+    private String password;
 
     private Role role;
 
