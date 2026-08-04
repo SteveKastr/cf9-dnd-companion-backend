@@ -4,11 +4,11 @@ import gr.aueb.cf9.dndcompanion.exceptions.EntityNotFoundException;
 import gr.aueb.cf9.dndcompanion.model.Item;
 import gr.aueb.cf9.dndcompanion.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -18,16 +18,11 @@ public class ItemService {
 
     private final ItemRepository itemRepository;
 
-    public List<Item> getAllItems(Authentication authentication) {
-        List<Item> items = itemRepository.findAll();
-
+    public Page<Item> getAllItems(Pageable pageable, Authentication authentication) {
         if (isPlayer(authentication)) {
-            return items.stream()
-                    .filter(item -> !MAGIC.equals(item.getItemType()))
-                    .toList();
+            return itemRepository.findByItemTypeNot(MAGIC, pageable);
         }
-
-        return items;
+        return itemRepository.findAll(pageable);
     }
 
     public Item getItemByIndex(String index, Authentication authentication) {
@@ -35,7 +30,7 @@ public class ItemService {
                 .orElseThrow(() -> new EntityNotFoundException("Item not found: " + index));
 
         if (isPlayer(authentication) && MAGIC.equals(item.getItemType())) {
-            throw new EntityNotFoundException("Item not found: " + index); //για να μην γνωρίζει αν υπάρχει ή όχι
+            throw new EntityNotFoundException("Item not found: " + index);
         }
 
         return item;

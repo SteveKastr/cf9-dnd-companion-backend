@@ -4,6 +4,8 @@ import gr.aueb.cf9.dndcompanion.exceptions.EntityNotFoundException;
 import gr.aueb.cf9.dndcompanion.model.Spell;
 import gr.aueb.cf9.dndcompanion.repository.SpellRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +16,8 @@ public class SpellService {
 
     private final SpellRepository spellRepository;
 
-    public List<Spell> getAllSpells() {
-        return spellRepository.findAll();
+    public Page<Spell> getAllSpells(Pageable pageable) {
+        return spellRepository.findAll(pageable);
     }
 
     public Spell getSpellByIndex(String index) {
