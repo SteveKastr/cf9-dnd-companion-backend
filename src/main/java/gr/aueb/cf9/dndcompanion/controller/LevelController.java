@@ -18,7 +18,13 @@ public class LevelController {
     private final LevelService levelService;
 
     @GetMapping
-    public List<Level> getLevelsByClass(@RequestParam String className) {
+    public List<Level> getLevels(
+            @RequestParam(required = false) String className,
+            @RequestParam(required = false) String subclassName) {
+
+        if (subclassName != null) {
+            return levelService.getLevelsBySubclassName(subclassName);
+        }
         return levelService.getLevelsByClassName(className);
     }
 }

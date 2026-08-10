@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface LevelRepository extends MongoRepository<Level, String> {
     List<Level> findByCharacterClassNameAndSubclassIsNull(String className);
+    List<Level> findBySubclassName(String subclassName);
 }

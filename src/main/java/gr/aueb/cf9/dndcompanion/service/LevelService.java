@@ -16,4 +16,8 @@ public class LevelService {
     public List<Level> getLevelsByClassName(String className) {
         return levelRepository.findByCharacterClassNameAndSubclassIsNull(className);
     }
+
+    public List<Level> getLevelsBySubclassName(String subclassName) {
+        return levelRepository.findBySubclassName(subclassName);
+    }
 }
