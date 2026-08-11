@@ -18,9 +18,27 @@ public class ItemService {
 
     private final ItemRepository itemRepository;
 
-    public Page<Item> getAllItems(Pageable pageable, Authentication authentication) {
-        if (isPlayer(authentication)) {
+    public Page<Item> getAllItems(Pageable pageable, String category, String itemType, Authentication authentication) {
+
+        boolean isPlayer = isPlayer(authentication);
+
+        // Player δεν βλέπει ποτέ magic items, ανεξάρτητα τι ζήτησε
+        if (isPlayer) {
+            if (category != null) {
+                return itemRepository.findByEquipmentCategoryNameAndItemTypeNot(category, MAGIC, pageable);
+            }
             return itemRepository.findByItemTypeNot(MAGIC, pageable);
+        }
+
+        // Admin/GM - πλήρης πρόσβαση με προαιρετικά filters
+        if (category != null && itemType != null) {
+            return itemRepository.findByEquipmentCategoryNameAndItemType(category, itemType, pageable);
+        }
+        if (category != null) {
+            return itemRepository.findByEquipmentCategoryName(category, pageable);
+        }
+        if (itemType != null) {
+            return itemRepository.findByItemType(itemType, pageable);
         }
         return itemRepository.findAll(pageable);
     }

@@ -17,4 +17,14 @@ public interface ItemRepository extends MongoRepository<Item, String> {
     List<Item> findByEquipmentCategoryName(String equipmentCategoryName);
 
     Page<Item> findByItemTypeNot(String itemType, Pageable pageable);
+
+    Page<Item> findByEquipmentCategoryName(String equipmentCategoryName, Pageable pageable);
+
+    Page<Item> findByEquipmentCategoryNameAndItemTypeNot(
+            String equipmentCategoryName, String itemType, Pageable pageable);
+
+    Page<Item> findByEquipmentCategoryNameAndItemType(
+            String equipmentCategoryName, String itemType, Pageable pageable);
+
+    Page<Item> findByItemType(String itemType, Pageable pageable);
 }
