@@ -6,10 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/monsters")
@@ -18,24 +17,21 @@ public class MonsterController {
 
     private final MonsterService monsterService;
 
-//    @GetMapping
-//    @PreAuthorize("hasAnyRole('ADMIN', 'GAME_MASTER')")
-//    public List<Monster> getAllMonsters() {
-//        return monsterService.getAllMonsters();
-//    }
+    @GetMapping
+    @PreAuthorize("hasAnyRole('ADMIN', 'GAME_MASTER')")
+    public Page<Monster> getAllMonsters(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size,
+            @RequestParam(required = false) String type,
+            @RequestParam(required = false) Double challengeRating,
+            @RequestParam(required = false) String search) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("name").ascending());
+        return monsterService.getAllMonsters(pageable, type, challengeRating, search);
+    }
 
     @GetMapping("/{index}")
     @PreAuthorize("hasAnyRole('ADMIN', 'GAME_MASTER')")
     public Monster getMonsterByIndex(@PathVariable String index) {
         return monsterService.getMonsterByIndex(index);
-    }
-
-    @GetMapping
-    @PreAuthorize("hasAnyRole('ADMIN', 'GAME_MASTER')")
-    public Page<Monster> getAllMonsters(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size) {
-        Pageable pageable = PageRequest.of(page, size);
-        return monsterService.getAllMonsters(pageable);
     }
 }
