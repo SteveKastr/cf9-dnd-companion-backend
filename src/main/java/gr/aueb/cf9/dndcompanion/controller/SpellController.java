@@ -21,7 +21,7 @@ public class SpellController {
     @GetMapping
     public Page<Spell> getAllSpells(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size,
+            @RequestParam(defaultValue = "18") int size,
             @RequestParam(required = false) Integer level,
             @RequestParam(required = false) String className) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("name").ascending());

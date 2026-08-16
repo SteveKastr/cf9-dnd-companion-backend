@@ -21,7 +21,7 @@ public class MonsterController {
     @PreAuthorize("hasAnyRole('ADMIN', 'GAME_MASTER')")
     public Page<Monster> getAllMonsters(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size,
+            @RequestParam(defaultValue = "18") int size,
             @RequestParam(required = false) String type,
             @RequestParam(required = false) Double challengeRating,
             @RequestParam(required = false) String search) {
