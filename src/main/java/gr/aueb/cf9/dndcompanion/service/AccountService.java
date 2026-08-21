@@ -10,6 +10,7 @@ import gr.aueb.cf9.dndcompanion.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import gr.aueb.cf9.dndcompanion.dto.UserMapper;
 
 @Service
 @RequiredArgsConstructor
@@ -19,7 +20,7 @@ public class AccountService {
 
     public UserResponseDTO getMyAccount(Authentication authentication) {
         User user = getCurrentUser(authentication);
-        return toDto(user);
+        return UserMapper.toDto(user);
     }
 
     public UserResponseDTO updateMyAccount(UpdateAccountRequestDTO request, Authentication authentication) {
@@ -35,7 +36,7 @@ public class AccountService {
         user.setEmail(request.getEmail());
 
         userRepository.save(user);
-        return toDto(user);
+        return UserMapper.toDto(user);
     }
 
     public void deleteMyAccount(Authentication authentication) {
@@ -54,15 +55,4 @@ public class AccountService {
                 .orElseThrow(() -> new EntityNotFoundException("User not found"));
     }
 
-    private UserResponseDTO toDto(User user) {
-        return new UserResponseDTO(
-                user.getId(),
-                user.getFirstName(),
-                user.getLastName(),
-                user.getUsername(),
-                user.getEmail(),
-                user.getRole(),
-                user.isActive()
-        );
-    }
 }

@@ -7,6 +7,7 @@ import gr.aueb.cf9.dndcompanion.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import gr.aueb.cf9.dndcompanion.dto.UserMapper;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class UserService {
 
     public List<UserResponseDTO> getAllUsers() {
         return userRepository.findAll().stream()
-                .map(this::toDto)
+                .map(UserMapper::toDto)
                 .toList();
     }
 
@@ -33,15 +34,4 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    private UserResponseDTO toDto(User user) {
-        return new UserResponseDTO(
-                user.getId(),
-                user.getFirstName(),
-                user.getLastName(),
-                user.getUsername(),
-                user.getEmail(),
-                user.getRole(),
-                user.isActive()
-        );
-    }
 }
