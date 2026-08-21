@@ -9,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/spells")
@@ -33,8 +32,4 @@ public class SpellController {
         return spellService.getSpellByIndex(index);
     }
 
-    @GetMapping("/level/{level}")
-    public List<Spell> getSpellsByLevel(@PathVariable int level) {
-        return spellService.getSpellsByLevel(level);
-    }
 }

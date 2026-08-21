@@ -8,8 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class SpellService {
@@ -34,7 +32,4 @@ public class SpellService {
                 .orElseThrow(() -> new EntityNotFoundException("Spell not found: " + index));
     }
 
-    public List<Spell> getSpellsByLevel(int level) {
-        return spellRepository.findByLevel(level);
-    }
 }
