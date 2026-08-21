@@ -10,6 +10,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+/**
+ * Represents a subrace (e.g. Hill Dwarf, High Elf), with its own
+ * ability bonuses and racial traits layered on top of the parent Race.
+ */
+
 @Document(collection = "subraces")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data

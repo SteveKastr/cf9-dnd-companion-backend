@@ -10,6 +10,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+/**
+ * Represents a top-level rules category (e.g. Combat, Spellcasting).
+ * The desc field contains Markdown-formatted introductory text; the
+ * full content lives in the referenced RuleSection entries.
+ */
+
 @Document(collection = "rules")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data

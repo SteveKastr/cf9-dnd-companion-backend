@@ -10,6 +10,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+/**
+ * Represents a character feat (e.g. Grappler), with
+ * optional ability score prerequisites.
+ */
+
 @Document(collection = "feats")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data

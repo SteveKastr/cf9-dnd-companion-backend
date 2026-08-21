@@ -10,6 +10,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+/**
+ * Represents a playable race (e.g. Elf, Dwarf). Related entities —
+ * Subrace and Trait — live in their own collections and are referenced
+ * here as lightweight ApiReference links, matching the SRD
+ * API structure.
+ */
+
 @Document(collection = "races")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
@@ -24,16 +31,16 @@ public class Race {
     private String name;
     private int speed;
     private List<AbilityBonus> abilityBonuses;
-    private Object abilityBonusOptions; // ευέλικτο
+    private Object abilityBonusOptions;
     private String alignment;
     private String age;
     private String size;
     private String sizeDescription;
     private List<ApiReference> startingProficiencies;
-    private Object startingProficiencyOptions; // ευέλικτο
+    private Object startingProficiencyOptions;
     private List<ApiReference> languages;
     private String languageDesc;
-    private Object languageOptions; // ευέλικτο
+    private Object languageOptions;
     private List<ApiReference> traits;
     private List<ApiReference> subraces;
     private String url;

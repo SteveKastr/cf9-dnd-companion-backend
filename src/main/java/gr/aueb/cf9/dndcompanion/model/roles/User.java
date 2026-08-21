@@ -9,6 +9,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
 
+/**
+ * Represents an application user (Admin, Game Master, or Player).
+ * Stores the bcrypt-hashed password, never the plain-text value.
+ */
 @Document(collection = "users")
 @Data
 @NoArgsConstructor

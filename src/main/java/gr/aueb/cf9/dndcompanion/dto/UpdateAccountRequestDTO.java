@@ -4,6 +4,12 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+/**
+ * Payload for a user updating their own account. Deliberately excludes
+ * username and password. Username stays fixed after registration, and
+ * password changes are out of scope for this project.
+ */
+
 @Data
 public class UpdateAccountRequestDTO {
 

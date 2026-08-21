@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Represents a monetary cost (e.g. equipment price, starting gold),
+ * matching the SRD's {quantity, unit} pattern (e.g. 15 gp).
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

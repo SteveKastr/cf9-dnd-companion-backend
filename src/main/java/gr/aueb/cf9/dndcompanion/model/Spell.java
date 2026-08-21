@@ -11,6 +11,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Represents a spell (e.g. Fireball, Cure Wounds). Unlike Monster,
+ * this entity is fully typed since the SRD spell schema has a fixed,
+ * well-defined structure without variable "choice" fields.
+ */
+
 @Document(collection = "spells")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data

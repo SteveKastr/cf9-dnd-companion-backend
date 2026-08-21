@@ -13,6 +13,11 @@ import org.springframework.security.access.AccessDeniedException;
 import java.time.Instant;
 import java.util.List;
 
+/**
+ * Centralized exception handling for all REST controllers. Converts
+ * thrown exceptions into consistent, client-friendly JSON error responses
+ * (ErrorResponseDTO) with appropriate HTTP status codes.
+ */
 @RestControllerAdvice
 public class ErrorHandler {
 

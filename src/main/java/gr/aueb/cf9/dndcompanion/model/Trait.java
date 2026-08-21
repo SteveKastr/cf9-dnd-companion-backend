@@ -10,6 +10,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+/**
+ * Represents a racial trait (e.g. Darkvision, Dwarven Resilience).
+ * Shared between Race and Subrace via reference — the same trait can
+ * apply to multiple races/subraces.
+ */
+
 @Document(collection = "traits")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
@@ -26,9 +32,9 @@ public class Trait {
     private List<ApiReference> races;
     private List<ApiReference> subraces;
     private List<ApiReference> proficiencies;
-    private Object proficiencyChoices;   // ευέλικτο - Choice schema
-    private Object languageOptions;      // ευέλικτο - Choice schema
+    private Object proficiencyChoices;
+    private Object languageOptions;
     private ApiReference parent;
-    private Object traitSpecific;        // ευέλικτο - breath weapon, spell options, κ.λπ.
+    private Object traitSpecific;
     private String url;
 }

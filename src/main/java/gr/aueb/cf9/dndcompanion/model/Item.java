@@ -12,6 +12,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+/**
+ * Represents a piece of equipment — weapon, armor, tool, gear, vehicle,
+ * or magic item — all unified into a single collection with an
+ * itemType flag ("mundane"/"magic") distinguishing the two categories.
+ * Fields not relevant to a given item's category are simply null.
+ */
+
 @Document(collection = "items")
 @Data
 @NoArgsConstructor

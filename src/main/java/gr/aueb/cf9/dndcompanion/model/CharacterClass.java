@@ -10,6 +10,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+/**
+ * Represents a D&D character class (e.g. Wizard, Fighter).
+ * ClassLevels and spells are URL strings, not embedded data — the actual
+ * level-by-level breakdown lives in separate Level/Feature collections,
+ * fetched via LevelController by className.
+ */
+
 @Document(collection = "classes")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
@@ -26,10 +33,10 @@ public class CharacterClass {
     private String classLevels; // URL string, όχι embedded data
     private MultiClassing multiClassing;
     private List<ApiReference> proficiencies;
-    private List<Object> proficiencyChoices; // ευέλικτο - Choice schema
+    private List<Object> proficiencyChoices;
     private List<ApiReference> savingThrows;
     private List<StartingEquipment> startingEquipment;
-    private List<Object> startingEquipmentOptions; // ευέλικτο - Choice schema
+    private List<Object> startingEquipmentOptions;
     private List<ApiReference> subclasses;
     private Spellcasting spellcasting;
     private String spells; // URL string
@@ -40,9 +47,9 @@ public class CharacterClass {
     @AllArgsConstructor
     public static class MultiClassing {
         private List<Prerequisite> prerequisites;
-        private Object prerequisiteOptions; // ευέλικτο - Choice schema
+        private Object prerequisiteOptions;
         private List<ApiReference> proficiencies;
-        private List<Object> proficiencyChoices; // ευέλικτο - Choice schema
+        private List<Object> proficiencyChoices;
     }
 
     @Data

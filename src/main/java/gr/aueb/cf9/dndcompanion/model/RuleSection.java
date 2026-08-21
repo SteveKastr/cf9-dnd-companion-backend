@@ -7,6 +7,11 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * Represents a single rules subsection with full Markdown-formatted
+ * text (including tables).
+ */
+
 @Document(collection = "ruleSections")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data

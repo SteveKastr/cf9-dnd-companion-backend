@@ -11,6 +11,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+/**
+ * Represents a character background (e.g. Acolyte).
+ *
+ * NOTE: the nested Feature class here is unrelated to the top-level
+ * Feature entity (used for class/subclass features) — this is simply
+ * the background's own bonus feature (e.g. "Shelter of the Faithful").
+ */
+
 @Document(collection = "backgrounds")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
@@ -24,15 +32,15 @@ public class Background {
     private String index;
     private String name;
     private List<ApiReference> startingProficiencies;
-    private Object languageOptions; // ευέλικτο - Choice schema
+    private Object languageOptions;
     private List<StartingEquipmentEntry> startingEquipment;
-    private List<Object> startingEquipmentOptions; // ευέλικτο - Choice schema
+    private List<Object> startingEquipmentOptions;
     private Cost startingGold; // reuse από model/common
     private Feature feature;
-    private Object personalityTraits; // ευέλικτο - Choice schema
-    private Object ideals;            // ευέλικτο - Choice schema
-    private Object bonds;             // ευέλικτο - Choice schema
-    private Object flaws;             // ευέλικτο - Choice schema
+    private Object personalityTraits;
+    private Object ideals;
+    private Object bonds;
+    private Object flaws;
     private String url;
 
     @Data

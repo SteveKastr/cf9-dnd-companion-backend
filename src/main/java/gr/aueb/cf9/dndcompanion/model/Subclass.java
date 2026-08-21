@@ -11,6 +11,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+/**
+ * Represents a subclass (e.g. Berserker Barbarian, Evocation
+ * Wizard). The JSON field "class" is mapped to characterClass since
+ * "class" is a reserved keyword in Java.
+ */
+
 @Document(collection = "subclasses")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data

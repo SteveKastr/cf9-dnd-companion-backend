@@ -8,6 +8,13 @@ import lombok.NoArgsConstructor;
 import java.time.Instant;
 import java.util.List;
 
+/**
+ * Standard error response returned by ErrorHandler for all
+ * exceptions. The argument constructor fills the timestamp
+ * for simple, single-message errors; the details list is populated
+ * separately for validation errors with multiple field-level messages.
+ */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

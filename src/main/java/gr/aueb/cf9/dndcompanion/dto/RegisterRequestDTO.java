@@ -4,6 +4,11 @@ import gr.aueb.cf9.dndcompanion.model.roles.Role;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
+/**
+ * Self-registration. Role is restricted to GAME_MASTER/PLAYER
+ * at the service layer (AuthService) — ADMIN cannot be selected here.
+ */
+
 @Data
 public class RegisterRequestDTO {
 

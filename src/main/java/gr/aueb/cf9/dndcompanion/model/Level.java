@@ -9,8 +9,18 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
 import java.util.List;
+
+/**
+ * Represents a single character level (1-20) for a class, including
+ * which features are gained and (if applicable) spellcasting progression.
+ *
+ * NOTE: LevelSpellcasting fields use explicit @JsonProperty annotations
+ * because the SNAKE_CASE naming strategy doesn't insert an underscore
+ * before trailing digits (e.g. "spellSlotsLevel1" would incorrectly
+ * become "spell_slots_level1" instead of the actual JSON key
+ * "spell_slots_level_1").
+ */
 
 @Document(collection = "levels")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -29,10 +39,10 @@ public class Level {
     private List<ApiReference> features;
     @JsonProperty("class")
     private ApiReference characterClass;
-    private Object classSpecific; // ευέλικτο - πολλά specific πεδία ανά class
+    private Object classSpecific;
     private LevelSpellcasting spellcasting;
     private ApiReference subclass;
-    private Object subclassSpecific; // ευέλικτο
+    private Object subclassSpecific;
     private String url;
 
     @Data

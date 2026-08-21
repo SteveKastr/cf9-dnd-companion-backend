@@ -5,6 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Safe, public-facing representation of a User — used for both the
+ * admin user list and the "My Account" page. Never includes the
+ * password hash.
+ */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

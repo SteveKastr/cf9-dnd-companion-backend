@@ -11,6 +11,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
+/**
+ * Represents a specific class/subclass feature (e.g. Rage, Sneak Attack).
+ * Referenced by Level entries to indicate what's gained at each level.
+ */
+
 @Document(collection = "features")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data

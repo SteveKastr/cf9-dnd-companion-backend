@@ -5,6 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Response returned after successful login/register, containing the
+ * JWT access token and basic user info for the frontend AuthContext.
+ */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

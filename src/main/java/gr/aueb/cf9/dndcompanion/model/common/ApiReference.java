@@ -4,6 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Lightweight reference to another SRD entity (e.g. a Race, Spell, or Item),
+ * matching the {index, name, url} pattern used throughout 5e SRD data.
+ * Embedded inside other entities rather than stored separately.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -10,6 +10,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+/**
+ * Represents a monster/creature stat block. Stats, senses, and armor
+ * class are strongly typed, but actions/special abilities/reactions/
+ * legendary actions are kept as generic Objects due to their highly
+ * variable structure (attack bonus, damage, saving throws, recharge
+ * mechanics, etc. vary per ability).
+ *
+ * IMPORTANT: because these fields are typed as Object, Jackson does NOT
+ * apply the SNAKE_CASE naming strategy to their nested keys during
+ * seeding — they retain their original snake_case JSON keys
+ * (e.g. "attack_bonus", "damage_dice") when read back via the API.
+ * The frontend's MonsterAction type/parsing logic accounts for this.
+ */
+
 @Document(collection = "monsters")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
