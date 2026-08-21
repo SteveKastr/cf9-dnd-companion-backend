@@ -9,6 +9,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Public authentication endpoints. Self-registration cannot create
+ * ADMIN accounts (enforced in AuthService) — the only admin account
+ * is bootstrapped via AdminUserSeeder.
+ */
+
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor

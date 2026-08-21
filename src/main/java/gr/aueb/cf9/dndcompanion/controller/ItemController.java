@@ -10,6 +10,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Paginated, filterable Items listing. Magic items are automatically
+ * excluded for Player role (enforced server-side in ItemService),
+ * regardless of the itemType filter requested.
+ */
+
 @RestController
 @RequestMapping("/api/items")
 @RequiredArgsConstructor

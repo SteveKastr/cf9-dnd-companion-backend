@@ -10,6 +10,11 @@ import org.springframework.security.core.Authentication;
 
 import java.util.List;
 
+/**
+ * Admin-only user management. Both listing and deletion require the
+ * ADMIN role; self-deletion is additionally blocked in UserService.
+ */
+
 @RestController
 @RequestMapping("/api/admin/users")
 @RequiredArgsConstructor

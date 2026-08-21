@@ -11,9 +11,9 @@
 	<groupId>gr.aueb.cf9</groupId>
 	<artifactId>dndcompanion</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
-	<url/>
+    <name>dndcompanion</name>
+    <description>D&amp;D 5e (2014) companion app - backend (Coding Factory 9 final project)</description>
+    <url/>
 	<licenses>
 		<license/>
 	</licenses>

@@ -10,6 +10,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Paginated, filterable Monsters listing (by type, challenge rating,
+ * and name search). Restricted to Admin and GameMaster roles — Players
+ * cannot access monster stat blocks at all.
+ */
+
 @RestController
 @RequestMapping("/api/monsters")
 @RequiredArgsConstructor

@@ -9,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @RequestMapping("/api/spells")
 @RequiredArgsConstructor
@@ -31,5 +30,4 @@ public class SpellController {
     public Spell getSpellByIndex(@PathVariable String index) {
         return spellService.getSpellByIndex(index);
     }
-
 }

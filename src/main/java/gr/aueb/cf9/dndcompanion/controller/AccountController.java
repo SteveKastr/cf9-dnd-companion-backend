@@ -9,6 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Endpoints for authenticated users to view/update/delete their own
+ * account. No role restriction — every authenticated user (Admin,
+ * GameMaster, Player) can manage their own profile here.
+ */
+
 @RestController
 @RequestMapping("/api/account")
 @RequiredArgsConstructor

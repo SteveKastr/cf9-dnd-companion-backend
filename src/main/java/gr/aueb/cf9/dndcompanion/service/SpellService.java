@@ -31,5 +31,4 @@ public class SpellService {
         return spellRepository.findByIndex(index)
                 .orElseThrow(() -> new EntityNotFoundException("Spell not found: " + index));
     }
-
 }

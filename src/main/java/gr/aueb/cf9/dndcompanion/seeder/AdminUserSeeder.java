@@ -10,6 +10,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+/**
+ * Bootstraps a single Admin account on first application startup,
+ * using credentials from environment variables (never hardcoded).
+ * Skips if an Admin already exists.
+ */
+
 @Component
 @RequiredArgsConstructor
 @Slf4j
