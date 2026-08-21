@@ -43,6 +43,11 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
     }
 
+    /**
+     * Defines the stateless (JWT-based) security rules for all HTTP requests.
+     * Public endpoints: auth (register/login) and Swagger documentation.
+     * Everything else requires a valid JWT token.
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -66,6 +71,10 @@ public class SecurityConfig {
         return http.build();
     }
 
+    /**
+     * Allows the React frontend (localhost:5173 in development) to make
+     * authenticated requests to this API despite running on a different origin.
+     */
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();

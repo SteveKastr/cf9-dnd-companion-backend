@@ -17,6 +17,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
+    /**
+     * Bridges our own User entity with Spring Security's UserDetails interface,
+     * so Spring Security can authenticate users stored in MongoDB.
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username)

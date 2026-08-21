@@ -5,6 +5,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * Provides the BCrypt password hashing algorithm used throughout the app
+ * (registration, login, and account updates) to store passwords securely.
+ */
+
 @Configuration
 public class PasswordConfig {
 

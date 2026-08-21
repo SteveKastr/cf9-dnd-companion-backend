@@ -23,6 +23,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
 
+    /**
+     * Runs once per HTTP request. If a valid JWT is present in the
+     * Authorization header, authenticates the user for the rest of this
+     * request. Requests without a token simply pass through unauthenticated,
+     * and are handled by SecurityConfig's authorization rules downstream.
+     */
     @Override
     protected void doFilterInternal(
             @NonNull HttpServletRequest request,
